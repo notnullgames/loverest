@@ -1,0 +1,12 @@
+[submodule "example/lib/bitser"]
+	path = example/lib/bitser
+	url = https://github.com/gvx/bitser.git
+[submodule "example/lib/luajit-request"]
+	path = example/lib/luajit-request
+	url = https://github.com/LPGhatguy/luajit-request.git
+[submodule "example/lib/dkjson"]
+	path = example/lib/dkjson
+	url = https://github.com/LuaDist/dkjson.git
+[submodule "example/lib/lovehandles"]
+	path = example/lib/lovehandles
+	url = https://github.com/notnullgames/lovehandles.git
