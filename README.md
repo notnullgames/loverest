@@ -86,7 +86,7 @@ function rest:request(url, options) end
 ### future ideas
 
 - web-support - I am using threads & libcurl FFI, which are both not supported in lovejs, but I could make them work with a little wrapping (and using native browser APIs)
-- windows with curl - mac & linux are pretty simple to work with libcurl, but windows doesn't have it by default, so another method would be helpful.
+- windows without curl - mac & linux are pretty simple to work with libcurl, but windows doesn't have it by default, so another method would be helpful.
 
 
 ### related

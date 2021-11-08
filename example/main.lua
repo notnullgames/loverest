@@ -10,7 +10,7 @@ local rest = require("loverest")
 -- this will hold the handle to the request
 local get_people
 
--- this holds the people object, once the request is finished (between update() and draw())
+-- this holds the people array, once the request is finished (between update() and draw())
 local people = {}
 
 -- I only need to do this once
