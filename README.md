@@ -4,7 +4,7 @@ This is a simple wrapper around the sort of REST services that receive JSON, and
 
 ## installation
 
-There are a few dependencies that need to be in your require-path. If you already have [bitser](https://github.com/gvx/bitser), [luajit-request](https://github.com/LPGhatguy/luajit-request), [dkjson](https://github.com/LuaDist/dkjson), [lovehandles](https://github.com/notnullgames/lovehandles) in your path, you're good. They are usefule libraries, seperately, so might come in handly, anyway. You also need libcurl installed. It comes with mac & generally comes with most linux distros (and is easy to install.) For windows, you can include the libcurl DLL along with your game, or tell your users to install it seperately.
+There are a few dependencies that need to be in your require-path. If you already have [bitser](https://github.com/gvx/bitser), [luajit-request](https://github.com/LPGhatguy/luajit-request), [dkjson](https://github.com/LuaDist/dkjson), [lovehandles](https://github.com/notnullgames/lovehandles) in your path, you're good. They are useful libraries, seperately, so might come in handy, anyway. You also need libcurl installed. It comes with mac & generally comes with most linux distros (and is easy to install.) For windows, you can include the libcurl DLL along with your game, or tell your users to install it seperately.
 
 The easiest way I have found to create the lua-deps is to just create a bunch of submodules in a dir:
 
