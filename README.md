@@ -81,7 +81,7 @@ function rest:request(url, options) end
 
 `options` is optional, and supports any options available [here](https://github.com/LPGhatguy/luajit-request).
 
-`input` is a regular lau table object, for input params, and will be converted to JSON.
+`input` optional, and is a regular lua table object, for input params, and will be converted to JSON.
 
 ### future ideas
 
