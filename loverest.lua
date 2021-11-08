@@ -4,23 +4,6 @@
 local lovehandles = require('lovehandles')
 
 local req = lovehandles([[
-  local function encode(str)
-    str = string.gsub (str, "\r?\n", "\r\n")
-    str = string.gsub (str, "([^%w%-%.%_%~ ])", function (c) return string.format ("%%%02X", string.byte(c)) end)
-    str = string.gsub (str, " ", "+")
-    return str
-  end
-
-  local function table_to_url(t)
-    local argts = {}
-    local i = 1
-    for k, v in pairs(t) do
-      argts[i]=encode(k).."="..encode(v)
-      i=i+1
-    end
-    return table.concat(argts,'&')
-  end
-
   local req = require("luajit-request")
   local json = require("dkjson")
   local url = args[1]
