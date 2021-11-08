@@ -23,8 +23,9 @@ end
 
 function love.update(dt)
   local _people, error = get_people()
-  if _people and not error then
+  if #people == 0 and _people and not error then
     people = _people.results
+    print("grabbed " .. #people .. " people.")
   end
 end
 
