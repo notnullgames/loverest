@@ -4,20 +4,38 @@
 local lovehandles = require('lovehandles')
 
 local req = lovehandles([[
+  local function encode(str)
+    str = string.gsub (str, "\r?\n", "\r\n")
+    str = string.gsub (str, "([^%w%-%.%_%~ ])", function (c) return string.format ("%%%02X", string.byte(c)) end)
+    str = string.gsub (str, " ", "+")
+    return str
+  end
+
+  local function table_to_url(t)
+    local argts = {}
+    local i = 1
+    for k, v in pairs(t) do
+      argts[i]=encode(k).."="..encode(v)
+      i=i+1
+    end
+    return table.concat(argts,'&')
+  end
+
   local req = require("luajit-request")
   local json = require("dkjson")
   local url = args[1]
   local options = args[2] or {}
+
+  if options["data"] then
+    options["data"] = json.encode(options["data"])
+  end
+  
   if options["_raw"] then
     table.remove(options, "_raw")
     return req.send(url, options)
   else
-    if options["body"] then
-      options["body"] = json.encode(options["body"])
-    end
     options.headers = options.headers or {}
     options.headers["accept"] = "application/json"
-    options.headers["content-type"] = "application/json"
     local r = req.send(url, options)
     if r and r.body then
       return json.decode(r.body)
@@ -53,7 +71,7 @@ function rest:post(url, input, options)
   options = options or {}
   options["method"] = "POST"
   if input then
-    options["body"] = input
+    options["data"] = input or {}
   end
   return req(url, options)
 end
@@ -63,7 +81,7 @@ function rest:put(url, input, options)
   options = options or {}
   options["method"] = "PUT"
   if input then
-    options["body"] = input
+    options["data"] = input or {}
   end
   return req(url, options)
 end
@@ -73,7 +91,7 @@ function rest:patch(url, input, options)
   options = options or {}
   options["method"] = "PATCH"
   if input then
-    options["body"] = input
+    options["data"] = input or {}
   end
   return req(url, options)
 end
@@ -83,7 +101,7 @@ function rest:delete(url, input, options)
   options = options or {}
   options["method"] = "DELETE"
   if input then
-    options["body"] = input
+    options["data"] = input or {}
   end
   return req(url, options)
 end
