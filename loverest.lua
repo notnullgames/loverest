@@ -19,6 +19,7 @@ local req = lovehandles([[
   else
     options.headers = options.headers or {}
     options.headers["accept"] = "application/json"
+    ptions.headers["content-type"] = "application/json"
     local r = req.send(url, options)
     if r and r.body then
       return json.decode(r.body)
