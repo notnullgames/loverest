@@ -86,8 +86,9 @@ function rest:request(url, options) end
 ### future ideas
 
 - web-support - I am using threads & libcurl FFI, which are both not supported in lovejs, but I could make them work with a little wrapping (and using native browser APIs)
-- windows without curl - mac & linux are pretty simple to work with libcurl, but windows doesn't have it by default, so another method would be helpful.
-- reduce dependencies - inline json lib, and use it instead of bitser to serialize between thread, for 0-deps.
+- windows without curl - mac & linux are pretty simple to work with libcurl, but windows doesn't have it easily installable, so another method would be helpful.
+- reduce dependencies - inline json & lovehandles lib, and use json instead of bitser to serialize between thread, for 0-deps.
+- more closely match the [fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API). I could wrap it like [fetch-curl](https://www.npmjs.com/package/fetch-curl) does, and in browser just pass the params directly.
 
 
 ### related
